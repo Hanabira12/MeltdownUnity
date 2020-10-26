@@ -45,6 +45,7 @@ public class CharacterScript : MonoBehaviour
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Edge")
         {
             isGrounded = true;
+            Debug.Log("Grounded");
         }
 
     }
@@ -55,6 +56,7 @@ public class CharacterScript : MonoBehaviour
         if (collision.gameObject.tag == "Ground" && collision.gameObject.tag != "Edge")
         {
             isGrounded = false;
+            Debug.Log(" not Grounded");
         }
     }
 
@@ -67,7 +69,7 @@ public class CharacterScript : MonoBehaviour
             //audio.Play();
             isMoving = true;
             rdb2d.velocity = new Vector2(rdb2d.velocity.x, jump);
-            //animator.SetFloat("Speed", jump);
+            animator.SetFloat("Speed", jump);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -75,7 +77,7 @@ public class CharacterScript : MonoBehaviour
             //audio.Play();
             isMoving = true;
             mySpriteRenderer.flipX = false;
-           // animator.SetFloat("Speed", velocity);
+            animator.SetFloat("Speed", velocity);
             rdb2d.velocity = new Vector2(velocity, rdb2d.velocity.y);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -84,12 +86,12 @@ public class CharacterScript : MonoBehaviour
             //audio.Play();
             isMoving = true;
             mySpriteRenderer.flipX = true;
-            //animator.SetFloat("Speed", velocity);
+            animator.SetFloat("Speed", velocity);
             rdb2d.velocity = new Vector2(-velocity, rdb2d.velocity.y);
         }
         if (isMoving == false)
         {
-            //animator.SetFloat("Speed", 0);
+            animator.SetFloat("Speed", 0);
             rdb2d.velocity = new Vector2(0, rdb2d.velocity.y);
         }
     }
