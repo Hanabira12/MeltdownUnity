@@ -63,7 +63,7 @@ public class CharacterScript : MonoBehaviour
     private void FixedUpdate()
     {
         isMoving = false;
-        if (Input.GetKey(KeyCode.UpArrow) && isGrounded)
+        if ( (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)) && isGrounded )
         {
             //audio.clip = jumping;
             //audio.Play();
@@ -71,7 +71,7 @@ public class CharacterScript : MonoBehaviour
             rdb2d.velocity = new Vector2(rdb2d.velocity.x, jump);
             animator.SetFloat("Speed", jump);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if ( Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) )
         {
             //audio.clip = walking;
             //audio.Play();
@@ -80,7 +80,7 @@ public class CharacterScript : MonoBehaviour
             animator.SetFloat("Speed", velocity);
             rdb2d.velocity = new Vector2(velocity, rdb2d.velocity.y);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if ( Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             //audio.clip = walking;
             //audio.Play();
