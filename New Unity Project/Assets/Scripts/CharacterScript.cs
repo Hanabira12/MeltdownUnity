@@ -18,7 +18,6 @@ public class CharacterScript : MonoBehaviour
     public static bool dead;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
