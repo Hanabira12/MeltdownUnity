@@ -11,7 +11,7 @@ public class CharacterScript : MonoBehaviour
     public Animator animator;
     public SpriteRenderer mySpriteRenderer;
     public AudioClip walking;
-    public AudioClip jumping;
+    public AudioClip Jump;
     private AudioSource audio;
     private bool isMoving;
     private bool isGrounded;
@@ -64,8 +64,8 @@ public class CharacterScript : MonoBehaviour
         isMoving = false;
         if ( (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)) && isGrounded )
         {
-            //audio.clip = jumping;
-            //audio.Play();
+            audio.clip = Jump;
+            audio.Play();
             isMoving = true;
             rdb2d.velocity = new Vector2(rdb2d.velocity.x, jump);
             animator.SetFloat("Speed", jump);
