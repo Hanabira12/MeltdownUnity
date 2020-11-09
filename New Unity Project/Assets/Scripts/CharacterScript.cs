@@ -41,7 +41,7 @@ public class CharacterScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Edge")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "GroundPlat")
         {
             isGrounded = true;
             Debug.Log("Grounded");
@@ -52,7 +52,7 @@ public class CharacterScript : MonoBehaviour
     //Player is not grounded (jumping)
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground" && collision.gameObject.tag != "Edge")
+        if (collision.gameObject.tag == "Ground" && collision.gameObject.tag != "GroundPlat")
         {
             isGrounded = false;
             Debug.Log(" not Grounded");
@@ -64,8 +64,8 @@ public class CharacterScript : MonoBehaviour
         isMoving = false;
         if ( (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)) && isGrounded )
         {
-            audio.clip = Jump;
-            audio.Play();
+            //audio.clip = Jump;
+            //audio.Play();
             isMoving = true;
             rdb2d.velocity = new Vector2(rdb2d.velocity.x, jump);
             animator.SetFloat("Speed", jump);
