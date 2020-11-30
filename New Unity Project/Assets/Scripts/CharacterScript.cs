@@ -46,6 +46,7 @@ public class CharacterScript : MonoBehaviour
         {
             isGrounded = true;
             Debug.Log("Grounded");
+            //Debug.Log(collision.gameObject.tag);
         }
         if (collision.gameObject.tag == "Key")
         {
@@ -70,6 +71,7 @@ public class CharacterScript : MonoBehaviour
         {
             isGrounded = false;
             Debug.Log(" not Grounded");
+            //Debug.Log(collision.gameObject.tag + " exit");
         }
     }
 
