@@ -16,6 +16,7 @@ public class CharacterScript : MonoBehaviour
     private bool isMoving;
     private bool isGrounded;
     public static bool dead;
+    public bool hasKey = false;
 
 
     // Start is called before the first frame update
@@ -46,7 +47,20 @@ public class CharacterScript : MonoBehaviour
             isGrounded = true;
             Debug.Log("Grounded");
         }
-
+        if (collision.gameObject.tag == "Key")
+        {
+            hasKey = true;
+            Destroy(collision.gameObject);
+            Debug.Log("Player has the key");
+        }
+        if (collision.gameObject.tag == "Door" && hasKey == true)
+        {
+            Debug.Log("Player has opened the door!");
+        }
+        if (collision.gameObject.tag == "Door" && hasKey == false)
+        {
+            Debug.Log("You need the key!");
+        }
     }
 
     //Player is not grounded (jumping)
