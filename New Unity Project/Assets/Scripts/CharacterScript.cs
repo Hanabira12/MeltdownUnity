@@ -53,15 +53,31 @@ public class CharacterScript : MonoBehaviour
             hasKey = true;
             Destroy(collision.gameObject);
             Debug.Log("Player has the key");
+            keyCollected();
         }
         if (collision.gameObject.tag == "Door" && hasKey == true)
         {
             Debug.Log("Player has opened the door!");
+
+            // Hide the "door closed" sprite so the "door open" sprite displays. 
+            GameObject.Find("Door 2").transform.localScale = new Vector3(0, 0, 0);
         }
         if (collision.gameObject.tag == "Door" && hasKey == false)
         {
             Debug.Log("You need the key!");
         }
+    }
+
+    // Player has collected the key
+    private void keyCollected()
+    {
+        // Make the X over the exit door disappear
+        GameObject.Find("NoKey").transform.localScale = new Vector3(0, 0, 0);
+
+        // Change all the arrows to guide the player the right way
+        GameObject.Find("Arrow1").transform.Rotate(0f, -180f, 0f);
+        GameObject.Find("Arrow2").transform.Rotate(0f, -180f, 0f);
+        GameObject.Find("Arrow4").transform.Rotate(0f, 0f, -45f);
     }
 
     //Player is not grounded (jumping)
