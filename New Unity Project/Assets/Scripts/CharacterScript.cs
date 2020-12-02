@@ -7,6 +7,7 @@ public class CharacterScript : MonoBehaviour
 {
     public float velocity;
     public float jump;
+    public float timeRemaining;
     public Rigidbody2D rdb2d;
     public Animator animator;
     public SpriteRenderer mySpriteRenderer;
@@ -26,6 +27,7 @@ public class CharacterScript : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         mySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         audio = GetComponent<AudioSource>();
+        Invoke("LoadGameOverAfterTimer", timeRemaining);
     }
 
     // Update is called once per frame
@@ -61,6 +63,7 @@ public class CharacterScript : MonoBehaviour
 
             // Hide the "door closed" sprite so the "door open" sprite displays. 
             GameObject.Find("Door 2").transform.localScale = new Vector3(0, 0, 0);
+            SceneManager.LoadScene("Win");
         }
         if (collision.gameObject.tag == "Door" && hasKey == false)
         {
@@ -125,5 +128,10 @@ public class CharacterScript : MonoBehaviour
             animator.SetFloat("Speed", 0);
             rdb2d.velocity = new Vector2(0, rdb2d.velocity.y);
         }
+    }
+
+    void LoadGameOverAfterTimer()
+    {
+        SceneManager.LoadScene("Lose");
     }
 }

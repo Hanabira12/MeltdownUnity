@@ -26214,6 +26214,10 @@ PrefabInstance:
       propertyPath: jumping
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3683694346895835356, guid: 2a75a1f63e69a774e850c80ef50cd7aa, type: 3}
+      propertyPath: timeRemaining
+      value: 93
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a75a1f63e69a774e850c80ef50cd7aa, type: 3}
 --- !u!1 &3800052325568556155
