@@ -79,11 +79,11 @@ public class CharacterScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Edge")
+        if (collision.gameObject.tag == "Ground" )//|| collision.gameObject.tag == "Edge")
         {
             isGrounded = true;
-            Debug.Log("Grounded");
-            //Debug.Log(collision.gameObject.tag);
+            //Debug.Log("Grounded");
+            //Debug.Log("Jump: " + collision.gameObject.tag);
         }
         if (collision.gameObject.tag == "Key")
         {
@@ -121,10 +121,10 @@ public class CharacterScript : MonoBehaviour
     //Player is not grounded (jumping)
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if ( collision.gameObject.tag == "Ground" && collision.gameObject.tag != "Edge" )
+        if ( collision.gameObject.tag == "Ground" ) //&& collision.gameObject.tag != "Edge" )
         {
             isGrounded = false;
-            Debug.Log(" not Grounded");
+            //Debug.Log(" not Grounded");
             //Debug.Log(collision.gameObject.tag + " exit");
         }
     }
