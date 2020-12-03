@@ -46,9 +46,19 @@ public class CharacterScript : MonoBehaviour
 
         if (timerIsRunning)
         {
-            if (timeRemaining > 0)
+            if (timeRemaining > 0.01)
             {
                 timeRemaining -= Time.deltaTime;
+                if (timeRemaining <= 10.1)
+                {
+                    Text text = timeText.GetComponent<Text>();
+                    text.color = Color.red;
+                }
+                else if (timeRemaining <= 30.1)
+                {
+                    Text text = timeText.GetComponent<Text>();
+                    text.color = Color.yellow;
+                }
                 DisplayTime(timeRemaining);
             }
             else
@@ -159,8 +169,9 @@ public class CharacterScript : MonoBehaviour
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        float milliSeconds = (timeToDisplay % 1) * 1000;
 
-        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timeText.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliSeconds);
     }
 
     void LoadGameOverAfterTimer()
