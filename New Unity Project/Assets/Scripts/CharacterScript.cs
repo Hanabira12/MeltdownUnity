@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CharacterScript : MonoBehaviour
 {
@@ -13,21 +14,25 @@ public class CharacterScript : MonoBehaviour
     public SpriteRenderer mySpriteRenderer;
     public AudioClip walking;
     public AudioClip Jump;
+    public Text timeText;
+    public GameObject player;
     private AudioSource audio;
     private bool isMoving;
     private bool isGrounded;
     public static bool dead;
     public bool hasKey = false;
+    bool timerIsRunning = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         rdb2d = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         mySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         audio = GetComponent<AudioSource>();
-        Invoke("LoadGameOverAfterTimer", timeRemaining);
+        timerIsRunning = true;
     }
 
     // Update is called once per frame
@@ -38,6 +43,26 @@ public class CharacterScript : MonoBehaviour
             Time.timeScale = 1;
             SceneManager.LoadScene("Scene_0");
         }
+
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            }
+            else
+            {
+                timeRemaining = 0;
+                timerIsRunning = false;
+                LoadGameOverAfterTimer();
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        timeText.transform.position = new Vector3(player.transform.position.x + 8, player.transform.position.y + 6, transform.position.z);
     }
 
     //Player is grounded
@@ -128,6 +153,14 @@ public class CharacterScript : MonoBehaviour
             animator.SetFloat("Speed", 0);
             rdb2d.velocity = new Vector2(0, rdb2d.velocity.y);
         }
+    }
+
+    void DisplayTime(float timeToDisplay)
+    {
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     void LoadGameOverAfterTimer()
