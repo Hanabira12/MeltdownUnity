@@ -22,6 +22,8 @@ public class CharacterScript : MonoBehaviour
     public static bool dead;
     public bool hasKey = false;
     bool timerIsRunning = false;
+    public GameObject trapDoor1;
+    public GameObject trapDoor2;
 
 
     // Start is called before the first frame update
@@ -79,7 +81,7 @@ public class CharacterScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == "Ground" )//|| collision.gameObject.tag == "Edge")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Trap_Door")//|| collision.gameObject.tag == "Edge")
         {
             isGrounded = true;
             //Debug.Log("Grounded");
@@ -104,6 +106,17 @@ public class CharacterScript : MonoBehaviour
         {
             Debug.Log("You need the key!");
         }
+
+        //Destroy trap doors when grabbing the key.
+        if (collision.gameObject.tag == "Key")
+        {
+            trapDoor1 = GameObject.FindGameObjectWithTag("Trap_Door");
+            trapDoor2 = GameObject.FindGameObjectWithTag("Trap_Door2");
+            Destroy(trapDoor1);
+            Destroy(trapDoor2);
+
+            //Debug.Log("Trap activated");
+        }
     }
 
     // Player has collected the key
@@ -121,7 +134,7 @@ public class CharacterScript : MonoBehaviour
     //Player is not grounded (jumping)
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if ( collision.gameObject.tag == "Ground" ) //&& collision.gameObject.tag != "Edge" )
+        if ( collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Trap_Door") //&& collision.gameObject.tag != "Edge" )
         {
             isGrounded = false;
             //Debug.Log(" not Grounded");

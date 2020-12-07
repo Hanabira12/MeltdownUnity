@@ -9,6 +9,8 @@ TagManager:
   - Edge
   - Key
   - Door
+  - Trap_Door
+  - Trap_Door2
   layers:
   - Default
   - TransparentFX
