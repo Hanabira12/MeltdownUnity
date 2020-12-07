@@ -31756,6 +31756,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: f06247e10d066e849b8e137f5f152fa0, type: 2}
+    - target: {fileID: 3683694346615430538, guid: 2a75a1f63e69a774e850c80ef50cd7aa, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3683694346616554218, guid: 2a75a1f63e69a774e850c80ef50cd7aa, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 2.56
@@ -31798,11 +31802,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3683694346620292168, guid: 2a75a1f63e69a774e850c80ef50cd7aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.1
+      value: -2.48
       objectReference: {fileID: 0}
     - target: {fileID: 3683694346620292168, guid: 2a75a1f63e69a774e850c80ef50cd7aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7
+      value: -1.61
       objectReference: {fileID: 0}
     - target: {fileID: 3683694346620292168, guid: 2a75a1f63e69a774e850c80ef50cd7aa, type: 3}
       propertyPath: m_LocalPosition.z
