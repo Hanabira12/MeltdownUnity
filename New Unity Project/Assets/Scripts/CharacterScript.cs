@@ -38,7 +38,7 @@ public class CharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.R) && dead)
+        if ( Input.GetKey(KeyCode.R) )
         {
             Time.timeScale = 1;
             SceneManager.LoadScene("Scene_0");
