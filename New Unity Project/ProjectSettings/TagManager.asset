@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - GroundPlat
+  - Edge
+  - Key
+  - Door
+  - Trap_Door
+  - Trap_Door2
+  - TimerCanvas
   layers:
   - Default
   - TransparentFX
