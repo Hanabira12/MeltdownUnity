@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Trap_Door
   - Trap_Door2
+  - TimerCanvas
   layers:
   - Default
   - TransparentFX

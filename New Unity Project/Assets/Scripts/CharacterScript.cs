@@ -24,12 +24,14 @@ public class CharacterScript : MonoBehaviour
     bool timerIsRunning = false;
     public GameObject trapDoor1;
     public GameObject trapDoor2;
+    public GameObject timerCanvas;
 
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        timerCanvas = GameObject.FindGameObjectWithTag("TimerCanvas");
         rdb2d = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         mySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -74,7 +76,7 @@ public class CharacterScript : MonoBehaviour
 
     private void LateUpdate()
     {
-        timeText.transform.position = new Vector3(player.transform.position.x + 8, player.transform.position.y + 6, transform.position.z);
+        timeText.transform.position = new Vector3(timerCanvas.transform.position.x + 6, timerCanvas.transform.position.y + 4, transform.position.z);
     }
 
     //Player is grounded
