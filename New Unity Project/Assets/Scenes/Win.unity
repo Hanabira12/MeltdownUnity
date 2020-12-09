@@ -2194,7 +2194,7 @@ GameObject:
   - component: {fileID: 1349100264}
   - component: {fileID: 1349100263}
   m_Layer: 0
-  m_Name: GameOverMusic
+  m_Name: VIctoryMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

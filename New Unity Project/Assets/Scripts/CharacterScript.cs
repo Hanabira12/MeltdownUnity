@@ -103,7 +103,7 @@ public class CharacterScript : MonoBehaviour
 
             // Hide the "door closed" sprite so the "door open" sprite displays. 
             GameObject.Find("Door 2").transform.localScale = new Vector3(0, 0, 0);
-            SceneManager.LoadScene("Win");
+            SceneManager.LoadScene("GoodEnding");
         }
         if (collision.gameObject.tag == "Door" && hasKey == false)
         {
@@ -192,6 +192,6 @@ public class CharacterScript : MonoBehaviour
 
     void LoadGameOverAfterTimer()
     {
-        SceneManager.LoadScene("Lose");
+        SceneManager.LoadScene("BadEnding");
     }
 }
