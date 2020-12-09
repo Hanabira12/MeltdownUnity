@@ -69,6 +69,7 @@ public class CharacterScript : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
+                DisplayTime(timeRemaining);
                 LoadGameOverAfterTimer();
             }
         }
